@@ -12,7 +12,7 @@ public class Maximum_Element {
     public static void findMax(int arr[]) {
         int max = arr[0];
 
-        for (int i = 1; i < arr.length; i++) {  //for loop for finding maxium
+        for (int i = 1; i < arr.length; i++) {  //for loop for finding maximum
             if (arr[i] > max) {
                 max = arr[i];
             }
