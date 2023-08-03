@@ -9,8 +9,8 @@ public class Missing_Number {
     }
 
     public static void findNum(int arr[]) {
-        int n = arr.length+1;       // max value of array
-        int sum = n*(1+n)/2;        // total sum from 1 to 9 including 3
+        int n = arr.length + 1;       // max value of array
+        int sum = n * (1 + n) / 2;        // total sum from 1 to 9 including 3
         for (int ele :
                 arr) {
             sum -= ele;             // each array value is subtracted from sum
