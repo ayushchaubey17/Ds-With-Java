@@ -1,4 +1,6 @@
-public class Reverse_list extends Singly_LInked_list {
+// java code to reverse the singly linked list
+
+public class Reverse_list extends Singly_LInked_list {  // we make extended class in the same package
     public static void main(String[] args) {
 
 
@@ -10,22 +12,22 @@ public class Reverse_list extends Singly_LInked_list {
         obj.insertLast(52);
         obj.insertLast(62);
 
-        //printing the linked list
+        //printing the linked list before reversing
+        System.out.println("before reversing");
         obj.printList();
 
         //reversing the linked list
         obj.reverse(obj.head);
 
 
-
     }
 
     public void reverse(Singly_LInked_list.Node head) {
-      Singly_LInked_list.Node ahead = null;
-      Singly_LInked_list.Node back = null;
-      Singly_LInked_list.Node current = head;
+        Singly_LInked_list.Node ahead = null;
+        Singly_LInked_list.Node back = null;
+        Singly_LInked_list.Node current = head;
 
-      // reverse code
+        // reverse code
         while (current != null) {
             ahead = current.next;
             current.next = back;
@@ -35,16 +37,14 @@ public class Reverse_list extends Singly_LInked_list {
         head = back;
 
         //print list after revere
+
+        System.out.println("after reversing");
         Singly_LInked_list.Node temp = head;
         while (temp != null) {
-            System.out.print(temp.data+"----->");
+            System.out.print(temp.data + "-->");
             temp = temp.next;
         }
-
-
-
-
-
+        System.out.println("null");
 
     }
 }

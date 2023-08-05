@@ -15,7 +15,6 @@ public class Singly_LInked_list {
 //        obj.printList();
 
 
-
     }
 
     Node head;      //head pointer is of node type

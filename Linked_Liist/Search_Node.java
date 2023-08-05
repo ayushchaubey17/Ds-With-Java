@@ -1,3 +1,5 @@
+
+// java code to search anode in a ingly linked list
 public class Search_Node {
     public static void main(String[] args) {
 
@@ -11,7 +13,7 @@ public class Search_Node {
         obj.printList();
 
         Search_Node obj1 = new Search_Node();
-        obj1.search(obj.head,14);               //it is method of class Search_Node
+        obj1.search(obj.head, 14);               //it is method of class Search_Node
 
     }
 
@@ -22,10 +24,10 @@ public class Search_Node {
         }
 
         Singly_LInked_list.Node temp = head;
-        int count =1;                       //for counting the position
+        int count = 1;                       //for counting the position
         while (temp != null) {              //traverse till last node
             if (temp.data == key) {
-                System.out.println("element found at position "+count);
+                System.out.println("element found at position " + count);
                 return;
             }
             temp = temp.next;
