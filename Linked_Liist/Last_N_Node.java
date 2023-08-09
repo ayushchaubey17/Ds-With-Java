@@ -21,6 +21,8 @@ public class Last_N_Node {
             mainPtr = mainPtr.next;
             count++;
         }
+
+
         Node backPtr = head;
         while (mainPtr != null) {
             mainPtr = mainPtr.next;
