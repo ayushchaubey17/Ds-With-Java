@@ -71,7 +71,6 @@ public class Remove_Key {
         current.next = current.next.next;
 
 
-
     }
 
     // this code is used  for creating the list
