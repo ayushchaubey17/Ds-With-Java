@@ -1,7 +1,8 @@
-public class Check_Loop {
-    public static void main(String[] args) {
+// java code for finding the starting node of a linked list
+public class Starting_of_Loop {
 
-        Check_Loop obj = new Check_Loop();
+    public static void main(String[] args) {
+        Starting_of_Loop obj = new Starting_of_Loop();
         obj.insertNode(12);
         obj.insertNode(13);
         obj.insertNode(14);
@@ -12,19 +13,25 @@ public class Check_Loop {
         obj.insertNode(16);
         obj.printNode();            //16-->152-->125-->153-->15-->14-->13-->12-->null
 
-        obj.MakeLoop();         // Loop is created
+//        obj.MakeLoop();         // Loop is created
 
 //  After creating the loop
 //        obj.printNode();      //16-->152-->125-->153-->15-->14-->13-->12-->153-->15-->14-->13-->12-->153.........
+        int k = obj.checkingLoop();
+        if (k == 0) {
 
-        obj.checkLoop();
 
+            System.out.println(" loop not present");
+            return;
+        }
+        System.out.println(" loop starts at node having value" + k);
 
     }
 
 
-    // METHOD TO CHECK LOOP
-    public void checkLoop() {
+    //this method is used for cheecking loop or not
+    // method call to another for first node
+    public int checkingLoop() {
         Node slowPtr = head;        // ONE STEPS AT A TIME
         Node FastPtr = head;        // TWO STEPS AT A TIME
 
@@ -34,14 +41,28 @@ public class Check_Loop {
 
             if (slowPtr == FastPtr) {   //IF FAST CATCH SLOW LOOP PRESENT
                 System.out.println("there is a loop");
-                return;
+                return loopStartAt(slowPtr);
             }
 
         }
+        return 0;
 
-        System.out.println("No loop iS present");
-        return;
+    }
 
+
+    // this is for
+    public int loopStartAt(Node slowptr) {
+        Node temp = head;
+        while (temp != slowptr) {
+            temp = temp.next;
+            slowptr = slowptr.next;
+        }
+        if (slowptr == temp) {
+            return slowptr.data;
+
+        }
+
+        return 0;
     }
 
 
@@ -53,12 +74,12 @@ public class Check_Loop {
         }
 
         // now tail points the last node
-        tail.next = head.next.next.next;
+        tail.next = head.next.next;
 
     }
 
-
     // this code is used  for creating the list
+
     Node head;
 
     class Node {
