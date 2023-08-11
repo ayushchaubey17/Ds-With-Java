@@ -1,8 +1,8 @@
-// java code for finding the starting node of a linked list
-public class Starting_of_Loop {
+// java code to remove loop...in a singly linked list
+public class Remove_Loop {
 
     public static void main(String[] args) {
-        Starting_of_Loop obj = new Starting_of_Loop();
+        Remove_Loop obj = new Remove_Loop();
         obj.insertNode(12);
         obj.insertNode(13);
         obj.insertNode(14);
@@ -13,25 +13,30 @@ public class Starting_of_Loop {
         obj.insertNode(16);
         obj.printNode();            //16-->152-->125-->153-->15-->14-->13-->12-->null
 
-//        obj.MakeLoop();         // Loop is created
+        obj.MakeLoop();         // Loop is created
+//        obj.printNode();
+        obj.checkingLoop();     // Loop is removed
+        obj.printNode();
 
-//  After creating the loop
-//        obj.printNode();      //16-->152-->125-->153-->15-->14-->13-->12-->153-->15-->14-->13-->12-->153.........
-        int k = obj.checkingLoop();
-        if (k == 0) {
-
-
-            System.out.println(" loop not present");
-            return;
-        }
-        System.out.println(" loop starts at node having value" + k);
 
     }
 
+    // this is for checking starting node of the loop
+    public int RemoveLoop(Node slowptr) {
+        Node tempo = head;
+        while (tempo.next != slowptr.next) {
+            tempo = tempo.next;
+            slowptr = slowptr.next;
+        }
+//        slowptr  reaches just one before the starting point of the loop
+        slowptr.next = null;          // for breaking loop
+        System.out.println("loop is removed...");
+        return 0;
+    }
 
     //this method is used for cheecking loop or not
     // method call to another for first node
-    public int checkingLoop() {
+    public void checkingLoop() {
         Node slowPtr = head;        // ONE STEPS AT A TIME
         Node FastPtr = head;        // TWO STEPS AT A TIME
 
@@ -39,30 +44,15 @@ public class Starting_of_Loop {
             FastPtr = FastPtr.next.next;
             slowPtr = slowPtr.next;
 
+
             if (slowPtr == FastPtr) {   //IF FAST CATCH SLOW LOOP PRESENT
                 System.out.println("there is a loop");
-                return loopStartAt(slowPtr);
+                RemoveLoop(slowPtr);
+                return;
+
             }
 
         }
-        return 0;
-
-    }
-
-
-    // this is for checking starting node of the loop
-    public int loopStartAt(Node slowptr) {
-        Node temp = head;
-        while (temp != slowptr) {
-            temp = temp.next;
-            slowptr = slowptr.next;
-        }
-        if (slowptr == temp) {
-            return slowptr.data;
-
-        }
-
-        return 0;
     }
 
 
@@ -72,9 +62,8 @@ public class Starting_of_Loop {
         while (tail.next != null) {
             tail = tail.next;
         }
-
         // now tail points the last node
-        tail.next = head.next.next;
+        tail.next = head.next.next.next;
 
     }
 
