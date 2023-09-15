@@ -1,5 +1,9 @@
-//java code to print the binary tree in Postorder manner
-public class PostOeder_Traversal {
+//java code to print the binary tree in level order manner
+// we import the linked list and queue classes
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class level_Order {
     Node root;
 
 
@@ -43,24 +47,47 @@ public class PostOeder_Traversal {
     }
 
 
-    public void postorder(Node root) {
-
+    public void levelOrder(Node root) {
         if (root == null) {
             // it is the base case
             // return when the root having null node
             return;
         }
-        postorder(root.left);               //move to left
-        postorder(root.right);              // move to right
-        System.out.print(root.data+" ");
+        Queue<Node> que = new LinkedList<>();
+        que.offer(root);
 
+        while(!que.isEmpty()){      //run if queue having some element
+            Node temp = que.poll();
+
+            System.out.print(temp.data+" ");
+
+
+//            after that go to left part
+            if (temp.left!= null) {
+                que.offer(temp.left);
+
+            }
+
+            //after that go to right part
+            if (temp.right != null) {
+                que.offer(temp.right);
+            }
+
+
+
+        }
     }
 
     public static void main(String[] args) {
-        PostOeder_Traversal obj = new PostOeder_Traversal();
+        level_Order obj = new level_Order();
+
+        // create the binary trree
         obj.create_Binary_Tree();
-        obj.postorder(obj.root);
 
 
+    // traversing using level order traversal
+        obj.levelOrder(obj.root);
     }
+
+
 }

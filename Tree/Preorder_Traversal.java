@@ -1,3 +1,5 @@
+
+//java code to print the binary tree in preorder manner
 public class Preorder_Traversal {
     Node root;
 
