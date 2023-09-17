@@ -46,6 +46,10 @@ public class Insert_In_Binary_Search {
         if (root == null) {
             return;
         }
+        print(root.left);
+           System.out.print(root.data+" ");
+           print(root.right);
+
 
 
     }
