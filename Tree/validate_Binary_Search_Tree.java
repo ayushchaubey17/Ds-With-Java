@@ -29,14 +29,21 @@ public class validate_Binary_Search_Tree {
 
     public boolean isValid(Node root, long min, long max) {
 
+
+
+        //base case
         if (root == null) {
             return true;
         }
 
+
+//        if root value not in range then return false
         if (root.data > max || root.data<min) {
             return false;
         }
 
+
+        //check left is valid or not
         boolean left = isValid(root.left, min, root.data);
 
         // check for right only if left is true
@@ -44,6 +51,8 @@ public class validate_Binary_Search_Tree {
             boolean right = isValid(root.right, root.data, max);
             return right;
         }
+
+        //return false if left is invalid
         return false;
     }
 
@@ -56,6 +65,7 @@ public class validate_Binary_Search_Tree {
         obj.create_Tree();
 
         //print that isvalid or not
+        //initial the range is in -infinite to infinite
         System.out.println(obj.isValid(obj.root,Long.MIN_VALUE,Long.MAX_VALUE));
 
 

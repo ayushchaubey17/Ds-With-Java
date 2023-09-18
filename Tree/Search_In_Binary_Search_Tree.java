@@ -73,7 +73,6 @@ public class Search_In_Binary_Search_Tree {
         obj.insert1( 218);
         obj.insert1( 138);
         obj.insert1( 188);
-
         obj.search2(15);
 
 
