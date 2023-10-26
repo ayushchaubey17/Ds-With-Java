@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class Valid_Anagram {
     public static void main(String[] args) {
         String a = "rama";
-        String b = "marbk";
+        String b = "varbk";
 
         System.out.println(check(a, b));
     }
