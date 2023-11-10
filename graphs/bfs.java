@@ -69,19 +69,24 @@ public class bfs {
 
 
         q.add(0);
+        visit[0] = true;
+
+
+
         while(!q.isEmpty()){
             int temp = q.remove();
+            System.out.println(temp);
 
-            if (!visit[temp]) {
-                System.out.print(temp+" ");
-                visit[temp] = true;
-
-
-                for (int i = 0; i < graph[temp].size(); i++) {
-                    Edge e = graph[temp].get(i);
-                    q.add(e.des);
+            for(Edge i: graph[temp])
+            {
+                if (!visit[i.des]) {
+                    q.add(i.des);
+                    visit[i.des]= true;
                 }
             }
+
+
+
 
         }
 
