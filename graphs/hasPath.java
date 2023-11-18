@@ -1,11 +1,5 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-
-public class bfs {
-
-
-
+import java.util.*;
+public class hasPath {
     public static void main(String[] args) {
         /*
 
@@ -28,12 +22,27 @@ public class bfs {
 
         int v =7;
         ArrayList<Edge> [] graph = new ArrayList[v];
-       createGraph(graph);
-       bfs(graph);
+        createGraph(graph);
+
+        boolean visit [] = new boolean[v];
+
+        System.out.println(hasGraph(0,6,graph,visit));
 
 
     }
 
+    public static boolean hasGraph(int src,int des, ArrayList<Edge> graph[],boolean [] visit){
+
+        if(src== des)return true;
+
+        visit[src] = true;
+
+
+        for(Edge i : graph[src]){
+            if(!visit[i.des] && hasGraph(i.des,des,graph,visit))return true;
+        }
+        return false;
+    }
 
     public static void createGraph(ArrayList<Edge> []graph) {
         int n = graph.length;
@@ -65,36 +74,7 @@ public class bfs {
 
     }
 
-    public static void bfs(ArrayList<Edge>[] graph) {
-        Queue<Integer> q = new LinkedList<>();
-        boolean[] visit = new boolean[graph.length];
 
-
-        q.add(0);
-        visit[0] = true;
-
-
-
-        while(!q.isEmpty()){
-            int temp = q.remove();
-            System.out.println(temp);
-
-            for(Edge i: graph[temp])
-            {
-                if (!visit[i.des]) {
-                    q.add(i.des);
-                    visit[i.des]= true;
-                }
-            }
-
-
-
-
-        }
-
-
-
-    }
 
     static class Edge{
 

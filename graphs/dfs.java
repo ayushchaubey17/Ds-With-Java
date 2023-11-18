@@ -10,7 +10,7 @@ public class dfs {
         boolean visit[] = new boolean[v];
 
 
-        dfs(0,graph,visit);
+        dfs(0,graph,visit);// first we do for 0 node then apply recursion
     }
 
     public static void dfs(int curr , ArrayList<Edge> graph[],boolean [] visit) {
